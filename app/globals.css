@@ -1,23 +1,10 @@
-/* set full height of application to viewport of device */
 html,
 body {
-  height: 100vh;
-  overflow-y: hidden;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-
+  background: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* background image based on weather condition */
-.isDay {
-  background-image:linear-gradient(0deg, hsla(0, 0%, 0%, 0.30), hsla(0, 0%, 0%, 0.60)), url("../public/day.jpg");
-}
-
-
-.isNight {
-  background-image:linear-gradient(0deg, hsla(0, 0%, 0%, 0.301), hsla(0, 0%, 0%, 0.301)), url("../public/night.jpg");
-}
-
-
