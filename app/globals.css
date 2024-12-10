@@ -5,6 +5,81 @@ body {
 }
 
 body {
-  background: rgb(255, 255, 255);
+  background: #05008D;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#Today {
+  border: solid green 2px;
+}
+
+#Forecast {
+  border: solid rgb(128, 0, 0) 2px;
+}
+
+#Feelslike {
+  border: solid rgb(119, 128, 0) 2px;
+}
+
+body {
+  display: grid;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50px 50px 50px;
+  grid-template-areas:
+    "OffCanvasMenu OffCanvasMenu"
+    "Today Today"
+    "Forecast Forecast"
+    "Feelslike Feelslike"
+}
+
+
+#OffCanvasMenu {
+  grid-area: OffCanvasMenu;
+}
+
+#Today {
+  grid-area: Today;
+}
+
+#Forecast {
+  grid-area: Forecast;
+}
+
+#Feelslike {
+  grid-area: Feelslike;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  body {
+    display: grid;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 50px 50px;
+    grid-template-areas:
+      "OffCanvasMenu OffCanvasMenu"
+      "Today Forecast"
+      "Today Feelslike"
+  }
+
+
+  #OffCanvasMenu {
+    grid-area: OffCanvasMenu;
+  }
+
+  #Today {
+    grid-area: Today;
+  }
+
+  #Forecast {
+    grid-area: Forecast;
+  }
+
+  #Feelslike {
+    grid-area: Feelslike;
+  }
+
 }
