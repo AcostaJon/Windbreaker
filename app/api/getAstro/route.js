@@ -7,9 +7,9 @@ export async function GET() {
         // return current weather
         return Response.json({astronomy })
 
-    } catch (error) {
+    } catch (err) {
         // throw any issues
-        console.log('error: ' + error)
+        return new Response(err)
     }
 
 

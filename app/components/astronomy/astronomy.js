@@ -4,7 +4,7 @@ export default function Astronomy(props) {
     if (props.astronomy) {
         return (
             <>
-                <div className="row container-fluid text-white py-4 py-md-1 justify-content-around align-items-center text-center rounded shadow-lg" id="Astronomy">
+                <div className="row container-fluid text-white py-4 py-md-0 py-md-1 justify-content-around align-items-center text-center rounded shadow-lg" id="Astronomy">
                     {/* sunrise */}
                     <div className="col-4  px-0">
                         <img src="/sun-regular.svg" width={20}/>

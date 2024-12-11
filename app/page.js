@@ -9,6 +9,7 @@ import OffCanvasMenu from "./components/offCanvasMenu/offCanvasMenu";
 
 export default function Home() {
   // Today
+  const [data, setData] = useState();
   const [todayWeather, setTodayWeather] = useState(); // temp in fareighnheit
   // forecast
   const [day1Forecast, setDay1Forecast] = useState({})  // todays forecast
@@ -26,6 +27,7 @@ export default function Home() {
         return data.json()
       })
       .then((data) => {
+        setData(data)
         // store response data in variables
         const name = data.forecast.location.name
         const temp = data.forecast.current.temp_f
