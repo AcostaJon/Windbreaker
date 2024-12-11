@@ -27,7 +27,7 @@ export default function Forecast(props) {
                     <div className="d-flex align-items-center justify-content-between bg-primary py-2 py-md-1 rounded px-3">
                         <p className="mb-0 fontSize24Lg"><img src="/cloud-solid.svg" className="mb-1 windIconSize" /> <br/> {props.todayWeather.cloudCover}%</p>
                         <p className="mb-0 fontSize24Lg"><img src="/compass-regular.svg" className="mb-1 windIconSize" /> <br/> Winds|{props.todayWeather.windDirection}</p>
-                        <p className="mb-0 fontSize24Lg"><img src="/wind-solid-white.svg"   className=" mb-1 windIconSize"/> <br/> {Math.round(props.todayWeather.windSpeed)}mp/h</p>
+                        <p className="mb-0 fontSize24Lg"><img src="/wind-solid-white.svg" className=" mb-1 windIconSize"/> <br/> {Math.round(props.todayWeather.windSpeed)}mp/h</p>
                     </div>
                     {/* forecast day 1-3 */}
                     <div className="row p-0 justify-content-between mt-3 ">

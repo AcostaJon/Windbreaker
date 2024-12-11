@@ -18,11 +18,11 @@ export default function Today(props) {
                 <div className="container-fluid row text-white px-3 align-items-center my-3" id="Today">
                     {/* temp and location */}
                     <div className="col-7 pb-2 pt-4">
-                        <p className="fontSize48 fontSize100lg mb-2">{props.todayWeather.temp}&deg;</p>
+                        <p className="fontSize48 fontSize100lg mb-2">{Math.round(props.todayWeather.temp)}&deg;</p>
                         <p className="mb-0 fontSize24Lg fst-italic">{props.todayWeather.conditionText}</p>
                         <p className="mb-0 my-md-2 fst-italic fontSize24Lg">{props.todayWeather.name}</p>
                         <p className="mb-0 fontSize24Lg fst-italic">{Math.round(props.todayWeather.temp)}&deg; Feels like {Math.round(props.todayWeather.feelsLike)}&deg;</p>
-                        <p>{formattedDateTime}</p>
+                        <p className="fontSize24Lg fst-italic">{formattedDateTime}</p>
                     </div>
                     {/* condition icon */}
                     <div className="col-4 col-md-5 text-center">
