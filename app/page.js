@@ -123,7 +123,6 @@ export default function Home() {
       const conditionText = forecastResponse.forecast.current.condition.text
       const name = forecastResponse.forecast.location.name
       const region = forecastResponse.forecast.location.region
-      const country = forecastResponse.forecast.location.country
       const feelsLike = forecastResponse.forecast.current.feelslike_f
       const windSpeed = forecastResponse.forecast.current.wind_mph
       const windDirection = forecastResponse.forecast.current.wind_dir
@@ -134,8 +133,8 @@ export default function Home() {
         temp: temp,
         conditionIcon: conditionIcon,
         conditionText: conditionText,
+        name: name,
         region: region,
-        country: country,
         feelsLike: feelsLike,
         windSpeed: windSpeed,
         windDirection: windDirection,
@@ -168,7 +167,7 @@ export default function Home() {
     <>
       <OffCanvasMenu search={search} searchedLocation={searchedLocation} />
       <Today todayWeather={todayWeather} />
-      <Forecast day1={day1Forecast} day2={day2Forecast} day3={day3Forecast} />
+      <Forecast  forecast={{day1Forecast,day2Forecast,day3Forecast}} todayWeather={todayWeather} />
       <Astronomy astronomy={todayAstro} />
     </>
   );
