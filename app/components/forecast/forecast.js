@@ -25,9 +25,9 @@ export default function Forecast(props) {
                 <div className="row container-fluid text-white px-3 py-3 mb-2 mt-md-4 justify-content-evenly text-center rounded shadow-lg fontSize12Lg" id="Forecast">
                     {/* wind stats */}
                     <div className="d-flex align-items-center justify-content-between bg-primary pt-2 py-md-1 rounded px-3">
-                        <p className="mb-0 fontSize24Lg"><img src="/cloud-solid.svg" className="mb-1" width={25}/> <br/> {props.todayWeather.cloudCover}%</p>
-                        <p className="mb-0 fontSize24Lg"><img src="/compass-regular.svg" className="mb-1" width={25}/> <br/> Winds|{props.todayWeather.windDirection}</p>
-                        <p className="mb-0 fontSize24Lg"><img src="/wind-solid-white.svg"  width={15} className=" mb-1"/> <br/> {Math.round(props.todayWeather.windSpeed)}mp/h</p>
+                        <p className="mb-0 fontSize24Lg"><img src="/cloud-solid.svg" className="mb-1 windIconSize" /> <br/> {props.todayWeather.cloudCover}%</p>
+                        <p className="mb-0 fontSize24Lg"><img src="/compass-regular.svg" className="mb-1 windIconSize" /> <br/> Winds|{props.todayWeather.windDirection}</p>
+                        <p className="mb-0 fontSize24Lg"><img src="/wind-solid-white.svg"   className=" mb-1 windIconSize"/> <br/> {Math.round(props.todayWeather.windSpeed)}mp/h</p>
                     </div>
                     {/* forecast day 1-3 */}
                     <div className="row p-0 justify-content-between mt-3 ">

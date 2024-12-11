@@ -45,7 +45,7 @@ export default function OffCanvasMenu(props) {
     return (
         <>
             <div id="OffCanvasMenu">
-                <nav className="navbar bg-body-tertiary fixed-top">
+                <nav className="navbar bg-dark border-bottom border-body fixed-top" data-bs-theme="dark">
                     <div className="container-fluid">
                         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>

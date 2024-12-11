@@ -54,6 +54,10 @@ body {
   font-size: 48px;
 }
 
+.windIconSize{
+  width: 20px;
+}
+
 @media only screen and (min-width: 768px) {
   body {
 
@@ -103,6 +107,10 @@ body {
 
   #todayIcon{
     width: 170px;
+  }
+
+  .windIconSize{
+    width: 28px;
   }
 
 
