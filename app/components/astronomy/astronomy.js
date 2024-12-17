@@ -7,21 +7,21 @@ export default function Astronomy(props) {
                 <div className="row container-fluid text-white py-4 py-md-0 py-md-1 justify-content-around align-items-center text-center rounded shadow-lg" id="Astronomy">
                     {/* sunrise */}
                     <div className="col-4  px-0">
-                        <img src="/sun-regular.svg" width={20}/>
-                        <p className="my-2 fontSize24Lg">Sunrise</p>
-                        <p className="mb-0 text-secondary fontSize24Lg">{props.astronomy.astronomy.astronomy.astro.sunrise}</p>
+                        <img src="/sun-regular.svg" className="astroIcon"/>
+                        <p className="my-2 fontSizeMd">Sunrise</p>
+                        <p className="mb-0 text-secondary fontSizeMd">{props.astronomy.astronomy.astronomy.astro.sunrise}</p>
                     </div>
                     {/* sunset */}
                     <div className="col-4 px-0">
-                        <img src="/sun-solid.svg" width={20}/>
-                        <p className="my-2 fontSize24Lg">Sunset</p>
-                        <p className="mb-0  text-secondary fontSize24Lg">{props.astronomy.astronomy.astronomy.astro.sunset}</p>
+                        <img src="/sun-solid.svg" className="astroIcon"/>
+                        <p className="my-2 fontSizeMd">Sunset</p>
+                        <p className="mb-0  text-secondary fontSizeMd">{props.astronomy.astronomy.astronomy.astro.sunset}</p>
                     </div>
                     {/* moonphase */}
                     <div className="col-4 px-0" >
-                        <img src="/moon-solid.svg"  width={20}/>
-                        <p className="my-2 fontSize24Lg">MoonPhase</p>
-                        <p className="mb-0 fontSize13 text-secondary fontSize24Lg">{props.astronomy.astronomy.astronomy.astro.moon_phase}</p>
+                        <img src="/moon-solid.svg" className="astroIcon"/>
+                        <p className="my-2 fontSizeMd">MoonPhase</p>
+                        <p className="mb-0 fontSize13 text-secondary fontSizeMd">{props.astronomy.astronomy.astronomy.astro.moon_phase}</p>
                     </div>
                 </div>
             </>

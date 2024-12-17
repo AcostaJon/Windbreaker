@@ -50,6 +50,7 @@ export default function OffCanvasMenu(props) {
                         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
+                        <h5 className="text-white m-0 flex-fill text-center" id="offcanvasNavbarLabel">WindBreaker <img src="/wind-solid-white.svg" width={23} /></h5>
                         <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div className="offcanvas-header">
                                 <h5 className="offcanvas-title" id="offcanvasNavbarLabel">WindBreaker <img src="/wind-solid-white.svg" width={23} /></h5>

@@ -83,14 +83,18 @@ export default function Home() {
       .then((data) => {
         setTodayAstro(data)
       })
-
+  
   }, [])
-
 
   // search city hanlder
   const search = async (e) => {
 
     try {
+      const todaysIcon = document.getElementById('todayIcon')
+      // check if todays icon has animation, if it does then remove it
+      if (todaysIcon.classList.contains('rotate-center')) {
+        todaysIcon.classList.remove('rotate-center')
+      }
       // prevent page reload
       e.preventDefault()
 
@@ -157,7 +161,11 @@ export default function Home() {
       setTodayWeather(today)
       setSearchedLocation(searched);
 
-     
+      // add animation to todays icon after 1 second of loading
+      setTimeout(() => {
+        todaysIcon.classList.add('rotate-center')
+      }, "1000");
+
 
     } catch (error) {
       alert("Location not found. Please try again")
@@ -165,11 +173,24 @@ export default function Home() {
 
   }
 
+  // rotate today weather icon
+  const addAnimation = () => {
+    const todaysIcon = document.getElementById('todayIcon')
+    // if todaysIcon is true and not null, then add animate class
+    if (todaysIcon) {
+      setTimeout(() => {
+        todaysIcon.classList.add('rotate-center')
+      }, "1000");
+    }
+  }
+
+  addAnimation()
+
   return (
     <>
       <OffCanvasMenu search={search} searchedLocation={searchedLocation} />
       <Today todayWeather={todayWeather} />
-      <Forecast  forecast={{day1Forecast,day2Forecast,day3Forecast}} todayWeather={todayWeather} />
+      <Forecast forecast={{ day1Forecast, day2Forecast, day3Forecast }} todayWeather={todayWeather} />
       <Astronomy astronomy={todayAstro} />
     </>
   );
