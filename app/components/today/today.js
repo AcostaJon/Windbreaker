@@ -1,6 +1,17 @@
 'use client'
-
+import { useEffect, useRef } from "react";
 export default function Today(props) {
+    const imgIconRef = useRef(null)
+
+    useEffect(() => {
+        // if todaysIcon is true and not null, then add animate class
+        if (imgIconRef) {
+            setTimeout(() => {
+                imgIconRef.current.classList.add('rotate-center')
+            }, "1000");
+        }
+    }, [])
+
     // get current time
     const now = new Date();
     // time options
@@ -26,7 +37,7 @@ export default function Today(props) {
                     </div>
                     {/* condition icon */}
                     <div className="col-4 col-md-5 text-center">
-                        <img id="todayIcon" className="shadow-lg rounded-pill" src={props.todayWeather.conditionIcon} />
+                        <img ref={imgIconRef} id="todayIcon" className="shadow-lg rounded-pill" src={props.todayWeather.conditionIcon} />
                     </div>
                 </div>
             </>

@@ -83,14 +83,14 @@ export default function Home() {
       .then((data) => {
         setTodayAstro(data)
       })
-  
+
   }, [])
 
   // search city hanlder
   const search = async (e) => {
 
     try {
-      const todaysIcon = document.getElementById('todayIcon')
+      const todaysIcon = window.document.getElementById('todayIcon')
       // check if todays icon has animation, if it does then remove it
       if (todaysIcon.classList.contains('rotate-center')) {
         todaysIcon.classList.remove('rotate-center')
@@ -172,19 +172,6 @@ export default function Home() {
     }
 
   }
-
-  // rotate today weather icon
-  const addAnimation = () => {
-    const todaysIcon = document.getElementById('todayIcon')
-    // if todaysIcon is true and not null, then add animate class
-    if (todaysIcon) {
-      setTimeout(() => {
-        todaysIcon.classList.add('rotate-center')
-      }, "1000");
-    }
-  }
-
-  addAnimation()
 
   return (
     <>
