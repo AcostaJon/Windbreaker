@@ -5,7 +5,7 @@ const app = express();
 const port = 5000;
 
 // route "/"
-app.get('/', (req, res) => {
+app.use('/', (req, res) => {
     res.send('Hello Worlfasfdtgeqwrgt!');
   });
 
