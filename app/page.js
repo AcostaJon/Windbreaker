@@ -164,7 +164,7 @@ export default function Home() {
       // add animation to todays icon after 1 second of loading
       setTimeout(() => {
         todaysIcon.classList.add('rotate-center')
-      }, "2000");
+      }, "3000");
 
 
     } catch (error) {
