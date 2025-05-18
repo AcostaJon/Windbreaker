@@ -5,6 +5,17 @@ const app = express();
 
 const port = 5000;
 
+// route "/"
+app.get('/', async (req, res) => {
+  try {
+    
+    res.send("Welcome to WindBreakers server");
+
+  } catch (error) {
+    res.send("error while returning forecast response: " + error);
+  }
+});
+
 // route "/getForecast" 3 day
 app.get('/getForecast', async (req, res) => {
   try {
