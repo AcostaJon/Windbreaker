@@ -19,7 +19,7 @@ function App() {
 
   async function fetchData() {
     try {
-      const response = await axios.get('http://localhost:5000/get_current/33406');
+      const response = await axios.get('https://windbreaker-server.vercel.app/get_current/02907');
 
       setWeatherData(response.data)
       setTemp(response.data.current.temp_f)
