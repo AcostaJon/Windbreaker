@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 const port = 5000;
 const axios = require('axios');
+const cors = require('cors');
 
 // Enable parsing of JSON request bodies
 app.use(express.json());
+
+// Enable CORS for all origins (for development/testing)
+// In production, restrict origins to specific domains.
+app.use(cors({
+  origin: '*'
+}));
 
 // Home
 app.get('/', async(req, res) => {
