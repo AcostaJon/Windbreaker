@@ -1,8 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect, useTransition } from 'react';
 import axios from 'axios';
-
+// components
+import Header from './components/header/header.js'
+import Current from './components/current/current.js'
+import Astro from './components/astro/astro.js';
+import Forecast from './components/forecast/forecast.js';
 
 function App() {
   // State
@@ -30,9 +33,12 @@ function App() {
 
   // 1st: Get data
   useEffect(() => {
+    // run fetchData function
     fetchData()
+  
   },[])
 
+  // Get request
   async function fetchData() {
     try {
       // get current date and time
@@ -74,20 +80,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn react
-        </a>
-      </header>
+      <Header />
+      <Current />
+      <Forecast />
+      <Astro />
     </div>
   );
 }

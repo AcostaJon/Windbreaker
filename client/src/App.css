@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+.html, body, .App{
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header{
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#logo{
+    flex: 1;
+    text-align: center;
+}
+/* current */
+#current{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* forecast */
+#forecast{
+    margin: 10px 0;
+}
+/* forecast first div */
+#coverDirecHumid{
+    display: flex;
+    justify-content: space-evenly;
+}
+/* forecast days */
+#forecastDays{
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+/* astronomy */
+#astro{
+    display: flex;
+    justify-content: space-evenly;
 }
+/* medium devices and up */
+@media (min-width: 768px) {
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    .App{
+        display: grid;
+        grid-template-rows: 50px 1fr 1fr;
+        grid-template-areas:  "header header"
+                    "current forecast"
+                    "current astro"                
+        ;
+    }
+
+    #header{
+        grid-area: header;
+    }
+
+    #current{
+        grid-area: current;
+    }
+
+    #forecast{
+        grid-area: forecast;
+        margin: 10px 0;
+    }
+
+    #astro{
+        grid-area: astro;
+        margin: 10px 0;
+    }
+
 }
