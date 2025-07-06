@@ -1,19 +1,22 @@
+import { useContext } from "react"
+import { MyContext } from "../MyContext"
 export default function Current(params) {
+    const contextValue = useContext(MyContext);
     return(
         <>
             <div id="current">
                 {/* data */}
                 <div>
-                    <h1>27<sup>o</sup></h1>
-                    <p>partly cloudy</p>
-                    <p>City</p>
-                    <p>State</p>
-                    <p>27 feels like 24</p>
-                    <p>Tuesday 8:31 PM</p>
+                    <h1>{Math.round(contextValue.currentTemp)}<sup>o</sup></h1>
+                    <p>{contextValue.conditionText}</p>
+                    <p>{contextValue.location}</p>
+                    <p>{contextValue.region}</p>
+                    <p>{Math.round(contextValue.currentTemp)} feels like {Math.round(contextValue.feelsLike)}</p>
+                    <p>{contextValue.currentTime}</p>
                 </div>
                 {/* current condition */}
                 <div>
-                    <h1>current condition</h1>
+                    <img src={contextValue.conditionIcon}/>
                 </div>
             </div>
         </>

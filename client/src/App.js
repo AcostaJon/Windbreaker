@@ -1,6 +1,8 @@
 import './App.css';
-import { useState, useEffect, useTransition } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+// context api
+import { MyContext } from './components/MyContext.js';
 // components
 import Header from './components/header/header.js'
 import Current from './components/current/current.js'
@@ -14,7 +16,7 @@ function App() {
   // current weather
   const [currentTemp, setCurrentTemp] = useState("")
   const [conditionText, setConditionText] = useState("")
-  const [conditionIcon, setConditionIcon] = useState("");
+  const [conditionIcon, setConditionIcon] = useState("./wind.svg");
   const [location, setLocation] = useState("")
   const [region, setRegion] = useState("")
   const [feelsLike, setFeelsLike] = useState("")
@@ -35,8 +37,8 @@ function App() {
   useEffect(() => {
     // run fetchData function
     fetchData()
-  
-  },[])
+
+  }, [])
 
   // Get request
   async function fetchData() {
@@ -44,9 +46,9 @@ function App() {
       // get current date and time
       const now = new Date();
       // convert to string
-      const dayAndTime = now.toString() 
+      const dayAndTime = now.toString()
       // slice up to the year
-      setCurrentTime(dayAndTime.slice(0,15))
+      setCurrentTime(dayAndTime.slice(0, 15))
 
       // GET request 
       const getCurrent = await axios.get('https://windbreaker-server.vercel.app/get_current/02907');
@@ -78,13 +80,26 @@ function App() {
     }
   }
 
+  // values for context api
+  const contextValues = {
+    currentTemp,
+    conditionText,
+    conditionIcon,
+    location,
+    region,
+    feelsLike,
+    currentTime
+  }
+
   return (
-    <div className="App">
-      <Header />
-      <Current />
-      <Forecast />
-      <Astro />
-    </div>
+    <MyContext.Provider value={contextValues}>
+      <div className="App">
+        <Header />
+        <Current />
+        <Forecast />
+        <Astro />
+      </div>
+    </MyContext.Provider>
   );
 }
 
