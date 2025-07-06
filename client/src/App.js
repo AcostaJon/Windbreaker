@@ -8,6 +8,7 @@ import Header from './components/header/header.js'
 import Current from './components/current/current.js'
 import Astro from './components/astro/astro.js';
 import Forecast from './components/forecast/forecast.js';
+import OffCanvasMenu from './components/offCanvasMenu/menu.js'
 
 function App() {
   // State
@@ -25,9 +26,18 @@ function App() {
   const [cloudCover, setCloudCover] = useState("")
   const [windDirection, setWindDirection] = useState("");
   const [humidity, setHumidity] = useState("");
-  const [day1, setDay1] = useState("")
-  const [day2, setDay2] = useState("")
-  const [day3, setDay3] = useState("")
+  const [day1Date, setDay1Date] = useState("")
+  const [day1Temp, setDay1Temp] = useState("")
+  const [day1ConditionIcon, setDay1ConditionIcon] = useState("./wind.svg")
+  const [day1ConditionText, setDay1ConditionText] = useState("")
+  const [day2Date, setDay2Date] = useState("")
+  const [day2Temp, setDay2Temp] = useState("")
+  const [day2ConditionIcon, setDay2ConditionIcon] = useState("./wind.svg")
+  const [day2ConditionText, setDay2ConditionText] = useState("")
+  const [day3Date, setDay3Date] = useState("")
+  const [day3Temp, setDay3Temp] = useState("")
+  const [day3ConditionIcon, setDay3ConditionIcon] = useState("./wind.svg")
+  const [day3ConditionText, setDay3ConditionText] = useState("")
   // astronomy
   const [sunrise, setSunrise] = useState("")
   const [sunset, setSunset] = useState("")
@@ -67,9 +77,18 @@ function App() {
       setCloudCover(getCurrent.data.current.cloud);
       setWindDirection(getCurrent.data.current.wind_dir);
       setHumidity(getCurrent.data.current.humidity);
-      setDay1(getCurrent.data.forecast.forecastday[0]);
-      setDay2(getCurrent.data.forecast.forecastday[1]);
-      setDay3(getCurrent.data.forecast.forecastday[2]);
+      setDay1Date(getCurrent.data.forecast.forecastday[0].date);
+      setDay1Temp(getCurrent.data.forecast.forecastday[0].day.avgtemp_f);
+      setDay1ConditionIcon(getCurrent.data.forecast.forecastday[0].day.condition.icon);
+      setDay1ConditionText(getCurrent.data.forecast.forecastday[0].day.condition.text);
+      setDay2Date(getCurrent.data.forecast.forecastday[1].date);
+      setDay2Temp(getCurrent.data.forecast.forecastday[1].day.avgtemp_f);
+      setDay2ConditionIcon(getCurrent.data.forecast.forecastday[1].day.condition.icon);
+      setDay2ConditionText(getCurrent.data.forecast.forecastday[1].day.condition.text);
+      setDay3Date(getCurrent.data.forecast.forecastday[2].date);
+      setDay3Temp(getCurrent.data.forecast.forecastday[2].day.avgtemp_f);
+      setDay3ConditionIcon(getCurrent.data.forecast.forecastday[2].day.condition.icon);
+      setDay3ConditionText(getCurrent.data.forecast.forecastday[2].day.condition.text);
       // astronomy
       setSunrise(getAstronomy.data.astronomy.astro.sunrise);
       setSunset(getAstronomy.data.astronomy.astro.sunset);
@@ -80,6 +99,11 @@ function App() {
     }
   }
 
+  // offcanvas button handler
+  function offConvasMenuButton(e) {
+    
+  }
+
   // values for context api
   const contextValues = {
     currentTemp,
@@ -88,12 +112,32 @@ function App() {
     location,
     region,
     feelsLike,
-    currentTime
+    currentTime,
+    offConvasMenuButton,
+    cloudCover,
+    windDirection,
+    humidity,
+    day1Date,
+    day1Temp,
+    day1ConditionIcon,
+    day1ConditionText,
+    day2Date,
+    day2Temp,
+    day2ConditionIcon,
+    day2ConditionText,
+    day3Date,
+    day3Temp,
+    day3ConditionIcon,
+    day3ConditionText,
+    sunrise,
+    sunset,
+    moonPhase
   }
 
   return (
     <MyContext.Provider value={contextValues}>
       <div className="App">
+        <OffCanvasMenu />
         <Header />
         <Current />
         <Forecast />

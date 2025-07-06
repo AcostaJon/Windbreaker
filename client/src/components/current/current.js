@@ -1,6 +1,9 @@
+// import usecontext hook
 import { useContext } from "react"
+// import context client
 import { MyContext } from "../MyContext"
 export default function Current(params) {
+    // context api
     const contextValue = useContext(MyContext);
     return(
         <>

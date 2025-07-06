@@ -1,4 +1,13 @@
-export default function Forecast(params) {
+// import usecontext hook
+import { useContext } from "react"
+// import context client
+import { MyContext } from "../MyContext"
+
+export default function Forecast() {
+
+    // context api
+    const contextValue = useContext(MyContext);
+
     return (
         <>
             <div id="forecast">
@@ -6,42 +15,42 @@ export default function Forecast(params) {
                 <div id="coverDirecHumid">
                     {/* cloud cover */}
                     <div>
-                        <img />
-                        <p>20%</p>
+                        <img src="./cloud-sun-solid.svg" />
+                        <p>{contextValue.cloudCover}%</p>
                     </div>
                     {/* wind direction */}
                     <div>
-                        <img />
-                        <p>SSE</p>
+                        <img src="./compass-solid.svg" />
+                        <p>{contextValue.windDirection}</p>
                     </div>
                     {/* humidity */}
                     <div>
-                        <img />
-                        <p>15%</p>
+                        <img src="./droplet-solid.svg" />
+                        <p>{contextValue.humidity}%</p>
                     </div>
                 </div>
                 {/* forecast */}
                 <div id="forecastDays">
                     {/* forecast day 1 */}
                     <div>
-                        <p>05-20</p>
-                        <p>65<sup>o</sup></p>
-                        <img />
-                        <p>sunny</p>
+                        <p>{contextValue.day1Date.slice(5,10)}</p>
+                        <p>{Math.round(contextValue.day1Temp)}<sup>o</sup></p>
+                        <img src={contextValue.day1ConditionIcon} />
+                        <p>{contextValue.day1ConditionText}</p>
                     </div>
                     {/* forecast day 2 */}
                     <div>
-                        <p>05-21</p>
-                        <p>60<sup>o</sup></p>
-                        <img />
-                        <p>partly cloudy</p>
+                        <p>{contextValue.day2Date.slice(5,10)}</p>
+                        <p>{Math.round(contextValue.day2Temp)}<sup>o</sup></p>
+                        <img src={contextValue.day2ConditionIcon} />
+                        <p>{contextValue.day2ConditionText}</p>
                     </div>
                     {/* forecast day 3 */}
                     <div>
-                        <p>05-22</p>
-                        <p>58<sup>o</sup></p>
-                        <img />
-                        <p>rainy</p>
+                        <p>{contextValue.day3Date.slice(5,10)}</p>
+                        <p>{Math.round(contextValue.day3Temp)}<sup>o</sup></p>
+                        <img src={contextValue.day3ConditionIcon} />
+                        <p>{contextValue.day3ConditionText}</p>
                     </div>
                 </div>
             </div>
