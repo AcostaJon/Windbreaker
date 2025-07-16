@@ -42,16 +42,18 @@ function App() {
   const [sunrise, setSunrise] = useState("")
   const [sunset, setSunset] = useState("")
   const [moonPhase, setMoonPhase] = useState("");
+  // input value;
+  const [inputValue, setInputValue] = useState("New York City");
 
   // 1st: Get data
   useEffect(() => {
-    // run fetchData function
-    fetchData()
+    // run postFetchData function
+    postFetchData()
 
-  }, [])
+  }, [inputValue])
 
-  // Get request
-  async function fetchData() {
+  // POST REQUEST: retrun weather data 
+  async function postFetchData() {
     try {
       // get current date and time
       const now = new Date();
@@ -59,49 +61,100 @@ function App() {
       const dayAndTime = now.toString()
       // slice up to the year
       setCurrentTime(dayAndTime.slice(0, 15))
+      const dataToSend = {
+        location: inputValue,
+      };
 
-      // GET request 
-      const getCurrent = await axios.get('https://windbreaker-server.vercel.app/get_current/02907');
-      const getAstronomy = await axios.get('https://windbreaker-server.vercel.app/get_astronomy/02907')
+      // post request
+        // current weather data
+      const getCurrent = await axios.post("https://windbreaker-server.vercel.app/current", dataToSend)
+        .then((response) => {
+          return response.data
+        })
+        .catch((error) => {
+          console.error('Error sending data:', error.message);
+        });
+        // Astronomy weather
+      const getAstronomy = await axios.post("https://windbreaker-server.vercel.app/astro", dataToSend)
+        .then((response) => {
+          return response.data
+        })
+        .catch((error) => {
+          console.error('Error sending data:', error.message);
+        });
+
       // update state
       // current
-      setCurrentWeatherData(getCurrent.data);
-      setCurrentAstroData(getAstronomy.data)
-      setCurrentTemp(getCurrent.data.current.temp_f);
-      setConditionText(getCurrent.data.current.condition.text);
-      setConditionIcon(getCurrent.data.current.condition.icon);
-      setLocation(getCurrent.data.location.name);
-      setRegion(getCurrent.data.location.region);
-      setFeelsLike(getCurrent.data.current.feelslike_f);
+      setCurrentWeatherData(getCurrent);
+      setCurrentAstroData(getAstronomy)
+      setCurrentTemp(getCurrent.current.temp_f);
+      setConditionText(getCurrent.current.condition.text);
+      setConditionIcon(getCurrent.current.condition.icon);
+      setLocation(getCurrent.location.name);
+      setRegion(getCurrent.location.region);
+      setFeelsLike(getCurrent.current.feelslike_f);
       // forecast
-      setCloudCover(getCurrent.data.current.cloud);
-      setWindDirection(getCurrent.data.current.wind_dir);
-      setHumidity(getCurrent.data.current.humidity);
-      setDay1Date(getCurrent.data.forecast.forecastday[0].date);
-      setDay1Temp(getCurrent.data.forecast.forecastday[0].day.avgtemp_f);
-      setDay1ConditionIcon(getCurrent.data.forecast.forecastday[0].day.condition.icon);
-      setDay1ConditionText(getCurrent.data.forecast.forecastday[0].day.condition.text);
-      setDay2Date(getCurrent.data.forecast.forecastday[1].date);
-      setDay2Temp(getCurrent.data.forecast.forecastday[1].day.avgtemp_f);
-      setDay2ConditionIcon(getCurrent.data.forecast.forecastday[1].day.condition.icon);
-      setDay2ConditionText(getCurrent.data.forecast.forecastday[1].day.condition.text);
-      setDay3Date(getCurrent.data.forecast.forecastday[2].date);
-      setDay3Temp(getCurrent.data.forecast.forecastday[2].day.avgtemp_f);
-      setDay3ConditionIcon(getCurrent.data.forecast.forecastday[2].day.condition.icon);
-      setDay3ConditionText(getCurrent.data.forecast.forecastday[2].day.condition.text);
+      setCloudCover(getCurrent.current.cloud);
+      setWindDirection(getCurrent.current.wind_dir);
+      setHumidity(getCurrent.current.humidity);
+      setDay1Date(getCurrent.forecast.forecastday[0].date);
+      setDay1Temp(getCurrent.forecast.forecastday[0].day.avgtemp_f);
+      setDay1ConditionIcon(getCurrent.forecast.forecastday[0].day.condition.icon);
+      setDay1ConditionText(getCurrent.forecast.forecastday[0].day.condition.text);
+      setDay2Date(getCurrent.forecast.forecastday[1].date);
+      setDay2Temp(getCurrent.forecast.forecastday[1].day.avgtemp_f);
+      setDay2ConditionIcon(getCurrent.forecast.forecastday[1].day.condition.icon);
+      setDay2ConditionText(getCurrent.forecast.forecastday[1].day.condition.text);
+      setDay3Date(getCurrent.forecast.forecastday[2].date);
+      setDay3Temp(getCurrent.forecast.forecastday[2].day.avgtemp_f);
+      setDay3ConditionIcon(getCurrent.forecast.forecastday[2].day.condition.icon);
+      setDay3ConditionText(getCurrent.forecast.forecastday[2].day.condition.text);
       // astronomy
-      setSunrise(getAstronomy.data.astronomy.astro.sunrise);
-      setSunset(getAstronomy.data.astronomy.astro.sunset);
-      setMoonPhase(getAstronomy.data.astronomy.astro.moon_phase);
-
+      setSunrise(getAstronomy.astronomy.astro.sunrise);
+      setSunset(getAstronomy.astronomy.astro.sunset);
+      setMoonPhase(getAstronomy.astronomy.astro.moon_phase);
     } catch (error) {
+      alert("ERROR: Enter city name or zipcode and try again")
       console.error(error);
+    }
+
+  }
+
+  // offcanvas menu 
+  const offConvasMenuButton = (e) => {
+    const menuElement = document.getElementById("offCanvasMenu");
+    // show and hide
+    if (menuElement.style.display === "none") {
+      menuElement.style.display = "block";
+    } else {
+      menuElement.style.display = "none";
     }
   }
 
-  // offcanvas button handler
-  function offConvasMenuButton(e) {
-    
+  // offcanvas menu close handler
+  const offConvasMenuClose = (e) => {
+    // menu element
+    const menuElement = e.target.parentElement.parentElement
+    // show and hide
+    if (menuElement.style.display === "none") {
+      menuElement.style.display = "block";
+    } else {
+      menuElement.style.display = "none";
+    }
+
+  }
+
+  // offcanvas form submit
+  const offConvasFormSubmit = (e) => {
+    // strop page refresh
+    e.preventDefault()
+    // user input Value
+    const value = e.target[0].value;
+    // update state
+    setInputValue(value)
+    // clear input element
+    const input = e.target[0];
+    input.value = ""
   }
 
   // values for context api
@@ -114,6 +167,8 @@ function App() {
     feelsLike,
     currentTime,
     offConvasMenuButton,
+    offConvasMenuClose,
+    offConvasFormSubmit,
     cloudCover,
     windDirection,
     humidity,

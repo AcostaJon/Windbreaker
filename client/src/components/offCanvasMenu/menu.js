@@ -1,11 +1,21 @@
-export default function name() {
+import { useContext } from "react";
+import { MyContext } from "../MyContext";
 
-    const handleSubmit = (event) => {
 
+export default function Menu() {
+    // context api
+    const contextapi = useContext(MyContext)
+    // hendle form submit
+    const handleSubmit = (e) => {
+        contextapi.offConvasFormSubmit(e);
     };
+    // handle menu close
+    const handleClose = (e) => {
+        contextapi.offConvasMenuClose(e);
+    }
 
     return (
-        <div>
+        <div id="offCanvasMenu">
             {/* header */}
             <div>
                 {/* logo */}
@@ -14,11 +24,11 @@ export default function name() {
                     <img src="./wind.svg" />
                 </div>
                 {/* close */}
-                <button>X</button>
+                <button onClick={handleClose}>X</button>
             </div>
             {/* input */}
             <form onSubmit={handleSubmit}>
-                <input />
+                <input placeholder="city name or zipcode" />
                 <button>Search</button>
             </form>
         </div>

@@ -1,13 +1,18 @@
 .html, body, .App{
     height: 100vh;
 }
-
+/* offcanvas menu */
+#offCanvasMenu{
+    display: none;
+    position: absolute;
+}
+/* header */
 #header{
     display: flex;
     align-items: center;
     padding: 0 25px;
 }
-
+/* logo */
 #logo{
     flex: 1;
     text-align: center;
@@ -45,10 +50,16 @@
     .App{
         display: grid;
         grid-template-rows: 50px 1fr 1fr;
-        grid-template-areas:  "header header"
+        grid-template-areas:
+                    "offmenu offmenu"  
+                    "header header"
                     "current forecast"
                     "current astro"                
         ;
+    }
+
+    #offCanvasMenu{
+        grid-area: offmenu;
     }
 
     #header{
