@@ -1,10 +1,59 @@
 .html, body, .App{
     height: 100vh;
+    background-color: #395640;
+    color: white;
 }
-/* offcanvas menu */
+/********************************************** offcanvas menu */
 #offCanvasMenu{
     display: none;
     position: absolute;
+    height: 100%;
+    width: 75%;
+    background-color: rgb(43, 43, 43);
+}
+/* offcanvas header */
+#offCanvasHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+/* offcanvas close button */
+#offCanvasHeader button{
+    background-color: rgba(255, 0, 0, 0);
+    color: red;
+    border: none;
+    font-size: 18px;
+}
+/* offcanvas title and logo */
+#offCanvasMenu div div{
+    display: flex;
+}
+/* offcanvas logo */
+#offCanvasMenu div div h1{
+    margin-right: 15px;
+    font-size: 24px;
+}
+/* offcanvas form */
+#offCanvasMenu form {
+    display: flex;
+}
+#offCanvasMenu form input{
+    flex-grow:8;
+    margin: 5px 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px white;
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
+}
+/* offcanvas form button */
+#offCanvasMenu form button{
+   background-color: #4f7758;
+   color: white;
+   padding: 8px;
+   border: none;
+   margin-right: 4px;
+   border-radius: 5px;
 }
 /* header */
 #header{
@@ -17,49 +66,119 @@
     flex: 1;
     text-align: center;
 }
-/* current */
+/***************************************************** current */
 #current{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 25px;
 }
-
-/* forecast */
+/* current weather image */
+.currentWeatherImg{
+    width: 175px;
+}
+/* current temp */
+#current h1{
+    font-size: 100px;
+    font-weight: 400;
+    margin: 0;
+}
+/* current temp degree symbol */
+#current h1 sup{
+   color: #D2D0A0;
+}
+/* condition text */
+#current div p:first-of-type{
+    margin-top: 0;
+}
+/**************************************************** forecast */
 #forecast{
-    margin: 10px 0;
+    margin: 10px 12px;
+    padding: 10px;
+    background-color: #537D5D;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgb(255, 255, 255);
 }
-/* forecast first div */
-#coverDirecHumid{
+/* forecast images */
+.forecastImg{
+    width: 35px;
+    height: 35px;
+}
+/* forecast: cloud cover, wind direction, humidity */
+#coverDirectHumid{
     display: flex;
     justify-content: space-evenly;
+    box-shadow: inset 0px 0px 5px 3px #D2D0A0;
+    border-radius: 20px;
 }
-/* forecast days */
+/* forecast: cloud cover, wind direction, humidity  text  */
+#coverDirectHumid p{
+    margin: 0;
+}
+/* forecast days container */
 #forecastDays{
     display: flex;
     justify-content: space-evenly;
+    margin-top: 10px;
+}
+/* divs in forecast days  */
+#forecastDays div{
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 5px 3px #D2D0A0;
+}
+/* text in forecast days */
+#forecastDays div p{
+    margin: 8px 0;
+}
+/* second day in forecast days  */
+#forecastDays div:nth-child(2){
+    margin: 0 8px;
 }
 
-/* astronomy */
+/**************************************************** astronomy */
 #astro{
     display: flex;
     justify-content: space-evenly;
+    margin: 10px 12px;
+    padding: 15px 5px;
+    background-color: #537D5D;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgb(255, 255, 255);
+}
+#astro p{
+    margin: 8px 0;
+}
+/* second div astro: sunset */
+#astro div:nth-child(2){
+    border-left: #D2D0A0 solid 2px;
+    border-right: #D2D0A0 solid 2px;
+}
+/* images in astro */
+.astroImg{
+    width: 35px;
+    height: 35px;
+}
+
+/* all divs in forecast and astro containers  */
+#coverDirectHumid div, #forecastDays div, #astro div {
+    text-align: center;
+    width: 33%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 /* medium devices and up */
 @media (min-width: 768px) {
 
     .App{
         display: grid;
-        grid-template-rows: 50px 1fr 1fr;
-        grid-template-areas:
-                    "offmenu offmenu"  
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
                     "header header"
                     "current forecast"
                     "current astro"                
         ;
-    }
-
-    #offCanvasMenu{
-        grid-area: offmenu;
     }
 
     #header{

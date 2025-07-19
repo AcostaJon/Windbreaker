@@ -17,7 +17,7 @@ export default function Menu() {
     return (
         <div id="offCanvasMenu">
             {/* header */}
-            <div>
+            <div id="offCanvasHeader">
                 {/* logo */}
                 <div>
                     <h1>WindBreaker</h1>
