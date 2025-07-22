@@ -122,6 +122,7 @@ function App() {
 
   // offcanvas menu 
   const offConvasMenuButton = (e) => {
+    // offcanvas menu
     const menuElement = document.getElementById("offCanvasMenu");
     // show and hide
     if (menuElement.style.display === "none") {
@@ -146,6 +147,8 @@ function App() {
 
   // offcanvas form submit
   const offConvasFormSubmit = (e) => {
+    // off canvas menu 
+    const menuElement = document.getElementById("offCanvasMenu");
     // strop page refresh
     e.preventDefault()
     // user input Value
@@ -155,6 +158,7 @@ function App() {
     // clear input element
     const input = e.target[0];
     input.value = ""
+    menuElement.style.display = "none";
   }
 
   // values for context api

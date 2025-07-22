@@ -12,7 +12,7 @@ export default function Current(params) {
                 <div>
                     <h1>{Math.round(contextValue.currentTemp)}<sup>&#176;</sup></h1>
                     <p>{contextValue.conditionText}</p>
-                    <p>{contextValue.location}</p>
+                    <p>{contextValue.location}, {contextValue.region}</p>
                     <p>{Math.round(contextValue.currentTemp)} Feels like {Math.round(contextValue.feelsLike)}</p>
                     <p>{contextValue.currentTime}</p>
                 </div>

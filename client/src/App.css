@@ -1,8 +1,9 @@
 .html, body, .App{
-    height: 100vh;
+    height: 100%;
     background-color: #395640;
     color: white;
 }
+
 /********************************************** offcanvas menu */
 #offCanvasMenu{
     display: none;
@@ -139,7 +140,7 @@
 #astro{
     display: flex;
     justify-content: space-evenly;
-    margin: 10px 12px;
+    margin: 30px 12px;
     padding: 15px 5px;
     background-color: #537D5D;
     border-radius: 20px;
