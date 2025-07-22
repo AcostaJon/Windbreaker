@@ -9,8 +9,9 @@
     display: none;
     position: absolute;
     height: 100%;
-    width: 75%;
+    width: 80%;
     background-color: rgb(43, 43, 43);
+    padding-right:10px;
 }
 /* offcanvas header */
 #offCanvasHeader {
@@ -74,9 +75,14 @@
     justify-content: space-evenly;
     margin-bottom: 25px;
 }
+/* current side A */
+#currentSideA{
+    width: 40%;
+}
 /* current weather image */
 .currentWeatherImg{
-    width: 175px;
+   width: 100%;
+   height: 150px;
 }
 /* current temp */
 #current h1{
@@ -102,9 +108,10 @@
 }
 /* forecast images */
 .forecastImg{
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
 }
+
 /* forecast: cloud cover, wind direction, humidity */
 #coverDirectHumid{
     display: flex;

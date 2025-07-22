@@ -9,7 +9,7 @@ export default function Current(params) {
         <>
             <div id="current">
                 {/* data */}
-                <div>
+                <div id="currentSideA">
                     <h1>{Math.round(contextValue.currentTemp)}<sup>&#176;</sup></h1>
                     <p>{contextValue.conditionText}</p>
                     <p>{contextValue.location}, {contextValue.region}</p>
@@ -17,7 +17,7 @@ export default function Current(params) {
                     <p>{contextValue.currentTime}</p>
                 </div>
                 {/* current condition */}
-                <div>
+                <div id="currentSideB">
                     <img className="currentWeatherImg" src={contextValue.conditionIcon}/>
                 </div>
             </div>
