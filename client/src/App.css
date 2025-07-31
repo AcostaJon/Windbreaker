@@ -1,46 +1,172 @@
-.html, body, .App{
+/**
+ * ----------------------------------------
+ * animation bounce-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes bounce-top {
+    0% {
+      -webkit-transform: translateY(-45px);
+              transform: translateY(-45px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      -webkit-transform: translateY(-24px);
+              transform: translateY(-24px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    65% {
+      -webkit-transform: translateY(-12px);
+              transform: translateY(-12px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    82% {
+      -webkit-transform: translateY(-6px);
+              transform: translateY(-6px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    93% {
+      -webkit-transform: translateY(-4px);
+              transform: translateY(-4px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+  @keyframes bounce-top {
+    0% {
+      -webkit-transform: translateY(-45px);
+              transform: translateY(-45px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      -webkit-transform: translateY(-24px);
+              transform: translateY(-24px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    65% {
+      -webkit-transform: translateY(-12px);
+              transform: translateY(-12px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    82% {
+      -webkit-transform: translateY(-6px);
+              transform: translateY(-6px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    93% {
+      -webkit-transform: translateY(-4px);
+              transform: translateY(-4px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+
+
+.html,
+body,
+.App {
     height: 100%;
     background-color: #395640;
     color: white;
 }
 
 /********************************************** offcanvas menu */
-#offCanvasMenu{
+#offCanvasMenu {
     display: none;
     position: absolute;
     height: 100%;
-    width: 80%;
+    width: 75%;
     background-color: rgb(43, 43, 43);
-    padding-right:10px;
+    padding-right: 10px;
 }
+
 /* offcanvas header */
 #offCanvasHeader {
     display: flex;
     justify-content: space-between;
     padding: 15px 10px;
 }
+
 /* offcanvas close button */
-#offCanvasHeader button{
+#offCanvasHeader button {
     background-color: rgba(255, 0, 0, 0);
     color: red;
     border: none;
     font-size: 18px;
+    cursor: pointer;
 }
+
+/* offcanvas close button on hover */
+#offCanvasHeader button:hover {
+    color: rgb(124, 0, 0);
+}
+
 /* offcanvas title and logo */
-#offCanvasMenu div div{
+#offCanvasMenu div div {
     display: flex;
 }
+
 /* offcanvas logo */
-#offCanvasMenu div div h1{
+#offCanvasMenu div div h1 {
     margin-right: 15px;
     font-size: 24px;
 }
+
 /* offcanvas form */
 #offCanvasMenu form {
     display: flex;
 }
-#offCanvasMenu form input{
-    flex-grow:8;
+
+/* offcanvas form  input */
+#offCanvasMenu form input {
+    flex-grow: 8;
     margin: 5px 5px;
     padding: 10px;
     border-radius: 5px;
@@ -48,72 +174,111 @@
     background-color: rgba(255, 0, 0, 0);
     color: white;
 }
-/* offcanvas form button */
-#offCanvasMenu form button{
-   background-color: #4f7758;
-   color: white;
-   padding: 8px;
-   border: none;
-   margin-right: 4px;
-   border-radius: 5px;
+
+/* offcanvas form search buttpm */
+#offCanvasMenu form button {
+    background-color: #4f7758;
+    color: white;
+    padding: 8px;
+    border: none;
+    margin-right: 4px;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+/* offcanvas form search button on hover */
+#offCanvasMenu form button:hover {
+    background-color: #1e4227;
+}
+
 /* header */
-#header{
+#header {
     display: flex;
     align-items: center;
     padding: 0 25px;
 }
+
+/* offcanvas form button hover */
+#menuButton svg:hover {
+    fill: rgb(119, 117, 59);
+    ;
+}
+
+#menuButton {
+    cursor: pointer;
+}
+
 /* logo */
-#logo{
+#logo {
     flex: 1;
     text-align: center;
 }
+
 /***************************************************** current */
-#current{
+#current {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 25px;
 }
+
 /* current side A */
-#currentSideA{
+#currentSideA {
     width: 40%;
 }
+
 /* current weather image */
-.currentWeatherImg{
-   width: 100%;
-   height: 150px;
+.currentWeatherImg {
+    width: 100%;
+    height: 150px;
+    -webkit-animation: bounce-top 0.9s both;
+	        animation: bounce-top 0.9s both;
 }
-/* current temp */
-#current h1{
+
+/* current temperature */
+#current h1 {
     font-size: 100px;
     font-weight: 400;
     margin: 0;
 }
+
 /* current temp degree symbol */
-#current h1 sup{
-   color: #D2D0A0;
+#current h1 sup {
+    color: #D2D0A0;
 }
+
 /* condition text */
-#current div p:first-of-type{
+#current div p:first-of-type {
     margin-top: 0;
 }
+
 /**************************************************** forecast */
-#forecast{
+#forecast {
     margin: 10px 12px;
     padding: 10px;
-    background-color: #537D5D;
+    background-color: #395640;
     border-radius: 20px;
-    box-shadow: 0px 2px 5px rgb(255, 255, 255);
+    transition: 0.3s ease-in;
+
 }
+
+/* forecast on hover */
+#forecast:hover,
+#astro:hover {
+    position: relative;
+    bottom: 8px;
+    background-color: #537D5D;
+    box-shadow: 0px 4px 5px rgb(255, 255, 255);
+}
+
 /* forecast images */
-.forecastImg{
+.forecastImg {
     width: 25px;
     height: 25px;
 }
 
 /* forecast: cloud cover, wind direction, humidity */
-#coverDirectHumid{
+#coverDirectHumid {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -121,69 +286,80 @@
     border-radius: 20px;
     padding: 15px;
 }
+
 /*  forecast: cloud cover, wind direction, humidity div's */
-#coverDirectHumid div{
+#coverDirectHumid div {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 8px;
     padding-bottom: 8px;
 }
+
 /* wind direction */
-#coverDirectHumid div:nth-child(2){
+#coverDirectHumid div:nth-child(2) {
     border-top: 1px white solid;
-   border-bottom: 1px white solid;
+    border-bottom: 1px white solid;
 }
+
 /* forecast: cloud cover, wind direction, humidity  text  */
-#coverDirectHumid p{
+#coverDirectHumid p {
     margin: 0;
 }
+
 /* forecast days container */
-#forecastDays{
+#forecastDays {
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
 }
+
 /* divs in forecast days  */
-#forecastDays div{
+#forecastDays div {
     border-radius: 20px;
     box-shadow: inset 0px 0px 5px 3px #D2D0A0;
 }
+
 /* text in forecast days */
-#forecastDays div p{
+#forecastDays div p {
     margin: 8px 0;
 }
+
 /* second day in forecast days  */
-#forecastDays div:nth-child(2){
+#forecastDays div:nth-child(2) {
     margin: 0 8px;
 }
 
 /**************************************************** astronomy */
-#astro{
+#astro {
     display: flex;
     justify-content: space-evenly;
     margin: 30px 12px;
     padding: 15px 5px;
-    background-color: #537D5D;
+    background-color: #395640;
     border-radius: 20px;
-    box-shadow: 0px 2px 5px rgb(255, 255, 255);
+    transition: 0.3s ease-in;
 }
-#astro p{
+
+#astro p {
     margin: 8px 0;
 }
+
 /* second div astro: sunset */
-#astro div:nth-child(2){
+#astro div:nth-child(2) {
     border-left: #D2D0A0 solid 2px;
     border-right: #D2D0A0 solid 2px;
 }
+
 /* images in astro */
-.astroImg{
+.astroImg {
     width: 35px;
     height: 35px;
 }
 
 /* all divs in forecast and astro containers  */
- #forecastDays div, #astro div {
+#forecastDays div,
+#astro div {
     text-align: center;
     width: 33%;
     padding-left: 5px;
@@ -191,35 +367,55 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-/* medium devices and up */
-@media (min-width: 768px) {
 
-    .App{
+/* medium devices and up */
+@media (min-width: 1200px) {
+
+    .App {
         display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: 
-                    "header header"
-                    "current forecast"
-                    "current astro"                
+        grid-template-rows: 100px 400px 200px;
+        grid-template-areas:
+            "header header"
+            "current forecast"
+            "current astro"
         ;
     }
 
-    #header{
+    #header {
         grid-area: header;
     }
 
-    #current{
+    #current {
         grid-area: current;
     }
 
-    #forecast{
+    #forecast {
         grid-area: forecast;
         margin: 10px 0;
     }
 
-    #astro{
+    #astro {
         grid-area: astro;
         margin: 10px 0;
     }
 
+    /* offcanvas menu */
+    #offCanvasMenu {
+        width: 40%;
+    }
+
+    /* current temperature */
+    #current h1 {
+        font-size: 150px;
+    }
+
+    /* current condition, region ... */
+    #current p {
+        font-size: 24px;
+    }
+
+    /* current weather image */
+    .currentWeatherImg {
+        height: 200px;
+    }
 }

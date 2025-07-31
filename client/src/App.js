@@ -22,6 +22,7 @@ function App() {
   const [region, setRegion] = useState("")
   const [feelsLike, setFeelsLike] = useState("")
   const [currentTime, setCurrentTime] = useState("")
+  const [isDay, setIsDay] = useState(0)
   // forecast box
   const [cloudCover, setCloudCover] = useState("")
   const [windDirection, setWindDirection] = useState("");
@@ -93,6 +94,8 @@ function App() {
       setLocation(getCurrent.location.name);
       setRegion(getCurrent.location.region);
       setFeelsLike(getCurrent.current.feelslike_f);
+      setIsDay(getCurrent.current.is_day)
+
       // forecast
       setCloudCover(getCurrent.current.cloud);
       setWindDirection(getCurrent.current.wind_dir);
@@ -190,7 +193,8 @@ function App() {
     day3ConditionText,
     sunrise,
     sunset,
-    moonPhase
+    moonPhase,
+    isDay
   }
 
   return (
