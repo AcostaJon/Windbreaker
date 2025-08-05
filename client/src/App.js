@@ -45,13 +45,18 @@ function App() {
   const [moonPhase, setMoonPhase] = useState("");
   // input value;
   const [inputValue, setInputValue] = useState("New York City");
-
+  // searched locations
+  const [searchedLocations, setSearchedLocations] = useState([]);
+  // key for listed locations
+  let n = Math.random() + 1;
   // 1st: Get data
   useEffect(() => {
+
     // run postFetchData function
     postFetchData()
 
   }, [inputValue])
+
 
   // POST REQUEST: retrun weather data 
   async function postFetchData() {
@@ -67,7 +72,7 @@ function App() {
       };
 
       // post request
-        // current weather data
+      // current weather data
       const getCurrent = await axios.post("https://windbreaker-server.vercel.app/current", dataToSend)
         .then((response) => {
           return response.data
@@ -75,7 +80,7 @@ function App() {
         .catch((error) => {
           console.error('Error sending data:', error.message);
         });
-        // Astronomy weather
+      // Astronomy weather
       const getAstronomy = await axios.post("https://windbreaker-server.vercel.app/astro", dataToSend)
         .then((response) => {
           return response.data
@@ -123,7 +128,7 @@ function App() {
 
   }
 
-  // offcanvas menu 
+  // offcanvas menu: show/hide menu handler
   const offConvasMenuButton = (e) => {
     // offcanvas menu
     const menuElement = document.getElementById("offCanvasMenu");
@@ -148,8 +153,11 @@ function App() {
 
   }
 
-  // offcanvas form submit
+  // offcanvas form submit: search button handler
   const offConvasFormSubmit = (e) => {
+    // key for listed locations
+    let n = Math.random() + 1;
+
     // off canvas menu 
     const menuElement = document.getElementById("offCanvasMenu");
     // strop page refresh
@@ -161,7 +169,21 @@ function App() {
     // clear input element
     const input = e.target[0];
     input.value = ""
+    // update and store searched locations array
+    setSearchedLocations([...searchedLocations, { id: n, temp: currentTemp, region: region, icon: conditionIcon }])
+
     menuElement.style.display = "none";
+  }
+
+  // remove stored location in offcanvas menu  handler
+  const removeSearched = (e) => {
+    // get searched location by key prop: item to be removes
+    const locationToRemove = e.target.parentElement.getAttribute('data-item-id')
+
+    // Check for existence and remove in one step
+    const updatedProducts = searchedLocations.filter(item => item.id != locationToRemove);
+
+    setSearchedLocations(updatedProducts)
   }
 
   // values for context api
@@ -176,6 +198,7 @@ function App() {
     offConvasMenuButton,
     offConvasMenuClose,
     offConvasFormSubmit,
+    removeSearched,
     cloudCover,
     windDirection,
     humidity,
@@ -194,7 +217,8 @@ function App() {
     sunrise,
     sunset,
     moonPhase,
-    isDay
+    isDay,
+    searchedLocations
   }
 
   return (

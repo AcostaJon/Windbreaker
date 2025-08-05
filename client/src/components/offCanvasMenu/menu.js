@@ -1,5 +1,8 @@
+// context hook and client
 import { useContext } from "react";
 import { MyContext } from "../MyContext";
+// css
+import styles from './offCanvasMenu.module.css'
 
 
 export default function Menu() {
@@ -13,11 +16,15 @@ export default function Menu() {
     const handleClose = (e) => {
         contextapi.offConvasMenuClose(e);
     }
+    // remove searched location
+    const removeHandler = (e) => {
+        contextapi.removeSearched(e)
+    }
 
     return (
-        <div id="offCanvasMenu">
+        <div className={styles.offCanvasMenu} id="offCanvasMenu">
             {/* header */}
-            <div id="offCanvasHeader">
+            <div className={styles.offCanvasHeader} id="offCanvasHeader">
                 {/* logo */}
                 <div>
                     <h1>WindBreaker</h1>
@@ -31,6 +38,21 @@ export default function Menu() {
                 <input placeholder="city name or zipcode" />
                 <button>Search</button>
             </form>
+            {/* stored locations */}
+            <ul>
+                {/* list locations here */}
+                {contextapi.searchedLocations.map(location => (
+                    <li key={location.id} data-item-id={location.id}>
+                        <div>
+                            <p>{location.temp}</p>
+                            <p>{location.region}</p>
+                            <img src={location.icon} />
+                        </div>
+                        <button onClick={removeHandler}>X</button>
+                    </li>
+
+                ))}
+            </ul>
         </div>
     )
 }
