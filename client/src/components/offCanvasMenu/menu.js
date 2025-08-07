@@ -20,6 +20,10 @@ export default function Menu() {
     const removeHandler = (e) => {
         contextapi.removeSearched(e)
     }
+    // handle Saved Search
+    const handleSavedSearch = (e) => {
+        contextapi.searchSavedLocation(e)
+    }
 
     return (
         <div className={styles.offCanvasMenu} id="offCanvasMenu">
@@ -39,13 +43,13 @@ export default function Menu() {
                 <button>Search</button>
             </form>
             {/* stored locations */}
-            <ul>
+            <ul className={styles.ul}>
                 {/* list locations here */}
                 {contextapi.searchedLocations.map(location => (
-                    <li key={location.id} data-item-id={location.id}>
-                        <div>
-                            <p>{location.temp}</p>
-                            <p>{location.region}</p>
+                    <li className={styles.li} key={location.id} data-item-id={location.id}>
+                        <div onClick={handleSavedSearch}>
+                            <p>{Math.round(location.temp)}<sup>&#176;</sup></p>
+                            <p>{location.location},{location.region}</p>
                             <img src={location.icon} />
                         </div>
                         <button onClick={removeHandler}>X</button>

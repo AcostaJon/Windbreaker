@@ -1,47 +1,57 @@
 .html,
 body,
 .App {
-    height: 100%;
+    height: 100vh;
     background-color: #395640;
     color: white;
 }
+
 /* medium devices and up */
 @media (min-width: 1200px) {
+    /* layout grid */
     .App {
         display: grid;
-        grid-template-rows: 100px 400px 200px;
+        grid-template-rows: 100px 1fr 1fr;
         grid-template-areas:
             "header header"
             "current forecast"
             "current astro"
         ;
     }
+
     #header {
         grid-area: header;
     }
+
     #current {
         grid-area: current;
     }
+
     #forecast {
         grid-area: forecast;
         margin: 10px 0;
     }
+
     #astro {
         grid-area: astro;
         margin: 10px 0;
     }
+
     /* offcanvas menu */
     #offCanvasMenu {
         width: 40%;
     }
+
     /* current temperature */
     #current h1 {
         font-size: 150px;
     }
+
     /* current condition, region ... */
     #current p {
         font-size: 24px;
     }
+
     /* current weather image */
     .currentWeatherImg {
         height: 200px;

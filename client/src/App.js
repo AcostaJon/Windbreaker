@@ -170,9 +170,16 @@ function App() {
     const input = e.target[0];
     input.value = ""
     // update and store searched locations array
-    setSearchedLocations([...searchedLocations, { id: n, temp: currentTemp, region: region, icon: conditionIcon }])
+    setSearchedLocations([...searchedLocations, { id: n, temp: currentTemp,location:location, region: region, icon: conditionIcon }])
 
     menuElement.style.display = "none";
+  }
+
+  // search Saved Location handler
+  const searchSavedLocation = (e) => {
+    // get location value
+    console.log(e.target.children[1])
+    // update input value state
   }
 
   // remove stored location in offcanvas menu  handler
@@ -199,6 +206,7 @@ function App() {
     offConvasMenuClose,
     offConvasFormSubmit,
     removeSearched,
+    searchSavedLocation,
     cloudCover,
     windDirection,
     humidity,
