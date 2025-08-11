@@ -5,10 +5,15 @@
     align-items: center;
     padding: 0 25px;
 }
-/* logo */
+/* logo container */
 .logo {
     flex: 1;
     text-align: center;
+}
+/* log image */
+.logo img{
+    width: 200px;
+    height: 60px;
 }
 /* menu button hover */
 .menuButton svg:hover {
@@ -16,4 +21,12 @@
 }
 .menuButton {
     cursor: pointer;
+}
+
+/* medium devices and up */
+@media (min-width: 1200px) {
+    .logo img{
+        width: 350px;
+        height: 50px;
+    }
 }
