@@ -17,7 +17,7 @@ A full-stack, responsive weather application built with React, Express, and CSS.
 ## 🛠️ Tech Stack
 
 - **Frontend:** [React.js](https://react.dev/), Custom CSS
-- **Backend:** [Node.js](https://nodejs.org/), [Express.js] - [custom backend](https://windbreaker-server.vercel.app/) custom Backend
+- **Backend:** Node.js, Express.js - Custom Backend (https://windbreaker-server.vercel.app/)
 - **API Integration:** [WeatherAPI.com](https://www.weatherapi.com/docs/)
 - **HTTP Client:** [Axios](https://axios-http.com/) / Fetch API
-- **Deploy:** [Vercel] (https://windbreaker-seven.vercel.app/)
+- **Deploy:** Vercel (https://windbreaker-seven.vercel.app/)
